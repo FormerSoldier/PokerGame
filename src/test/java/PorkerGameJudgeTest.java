@@ -9,9 +9,9 @@ import java.util.List;
 public class PorkerGameJudgeTest {
 
     @Test
-    public void test_porker_judge_given_2_and_A_then_return_second_win(){
-        Poker first = new Poker('2','H');
-        Poker second = new Poker('A','S');
+    public void test_porker_judge_given_2_A_then_return_second_win(){
+        List<Poker> first = Arrays.asList(new Poker('2','H'));
+        List<Poker> second = Arrays.asList(new Poker('A','S'));
 
         String message = PorkerGameHandle.porkerJudge(first, second);
         Assert.assertEquals("second win",message);
@@ -19,8 +19,8 @@ public class PorkerGameJudgeTest {
 
     @Test
     public void test_porker_judge_given_JK_QK_then_return_second_win(){
-        List<Poker> first = Arrays.asList(new Poker('J','S'),new Poker('K','C'));
-        List<Poker> second = Arrays.asList(new Poker('Q','S'),new Poker('K','H'));
+        List<Poker> first = Arrays.asList(new Poker('K','C'),new Poker('J','S'));
+        List<Poker> second = Arrays.asList(new Poker('K','H'),new Poker('Q','S'));
 
         String message = PorkerGameHandle.porkerJudge(first,second);
         Assert.assertEquals("second win",message);
