@@ -36,6 +36,7 @@ public class PorkerGameHandle {
         dueIndexIfHasStraight(result);
         dueIndexIfHasFlush(result,pokers);
         dueIndexIfHasFullHouse(result);
+        dueIndexIfHasFourOfAKind(result);
         return result;
     }
 
@@ -102,6 +103,21 @@ public class PorkerGameHandle {
         if(indexs[PorkerTypeIndexConstant.THREEPAIRINDEX] == 0 || indexs[PorkerTypeIndexConstant.TWOPAIRINDEX] == 0)
             return indexs;
         indexs[PorkerTypeIndexConstant.FULLHOUSEINDEX] = indexs[PorkerTypeIndexConstant.THREEPAIRINDEX] * times + indexs[PorkerTypeIndexConstant.TWOPAIRINDEX];
+        return indexs;
+    }
+
+    private static int[] dueIndexIfHasFourOfAKind(int[] indexs){
+        int max = 0;
+        int index = 0;
+        for(int i = 0; i < dictionary.length() ; i++){
+            if(indexs[i] > max){
+                max = indexs[i];
+                index = i;
+            }
+        }
+        if(max == 4){
+            indexs[PorkerTypeIndexConstant.FOUROFAKINDINDEX] = (index + 1);
+        }
         return indexs;
     }
 }
