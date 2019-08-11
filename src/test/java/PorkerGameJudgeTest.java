@@ -145,4 +145,21 @@ public class PorkerGameJudgeTest {
         Assert.assertEquals("first win, his pokers are [3H, 4D, 5S, 6C, 7D]",message);
     }
 
+    @Test
+    public void test_porker_judge_given_3C_4D_5S_6C_7D_and_2h_3H_5H_9H_KH_then_return_first_win(){
+        List<Poker> first = Arrays.asList(new Poker('3','C'),
+                new Poker('4','D'),
+                new Poker('5','S'),
+                new Poker('6','C'),
+                new Poker('7','D'));
+        List<Poker> second = Arrays.asList(new Poker('2','H'),
+                new Poker('3','H'),
+                new Poker('5','H'),
+                new Poker('9','H'),
+                new Poker('K','H'));
+
+        String message = PorkerGameHandle.porkerJudge(first,second);
+        Assert.assertEquals("second win, his pokers are [2H, 3H, 5H, 9H, KH]",message);
+    }
+
 }

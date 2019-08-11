@@ -33,6 +33,7 @@ public class PorkerGameHandle {
         }
         dueIndexsIfHasTwoPairOrThreePair(result);
         dueIndexIfHasStraight(result);
+        dueIndexIfHasFlush(result,pokers);
         return result;
     }
 
@@ -77,6 +78,21 @@ public class PorkerGameHandle {
                 break;
             }
         }
+        return indexs;
+    }
+
+    private static boolean hasFlush(List<Poker> pokers){
+        char suit = pokers.get(0).getSuit();
+        int count = 0;
+        for(Poker poker : pokers){
+            if(poker.getSuit() == suit)
+                count ++;
+        }
+        return count == pokers.size();
+    }
+    private static int[] dueIndexIfHasFlush(int[] indexs, List<Poker> pokers){
+        if(hasFlush(pokers))
+            indexs[PorkerTypeIndexConstant.FLUSHINDEX] = 1;
         return indexs;
     }
 }
