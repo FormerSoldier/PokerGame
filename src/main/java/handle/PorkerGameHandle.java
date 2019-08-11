@@ -37,6 +37,7 @@ public class PorkerGameHandle {
         dueIndexIfHasFlush(result,pokers);
         dueIndexIfHasFullHouse(result);
         dueIndexIfHasFourOfAKind(result);
+        dueIndexIfHasStrgihtFlush(result);
         return result;
     }
 
@@ -118,6 +119,13 @@ public class PorkerGameHandle {
         if(max == 4){
             indexs[PorkerTypeIndexConstant.FOUROFAKINDINDEX] = (index + 1);
         }
+        return indexs;
+    }
+
+    private static int[] dueIndexIfHasStrgihtFlush(int[] indexs){
+        if(indexs[PorkerTypeIndexConstant.STRAIGHTINDEX] == 0 || indexs[PorkerTypeIndexConstant.FLUSHINDEX] == 0)
+            return indexs;
+        indexs[PorkerTypeIndexConstant.STRAIGHTFLUSHINDEX] = indexs[PorkerTypeIndexConstant.STRAIGHTINDEX] + indexs[PorkerTypeIndexConstant.FLUSHINDEX];
         return indexs;
     }
 }

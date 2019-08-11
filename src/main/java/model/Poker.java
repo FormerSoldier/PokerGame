@@ -1,10 +1,6 @@
 package model;
 
 public class Poker{
-    //Spade 黑桃
-    //Heart 红桃
-    //Diamond 方块
-    //Club 梅花
     private char number;
     private char suit;
 
