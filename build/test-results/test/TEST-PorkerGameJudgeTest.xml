@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PorkerGameJudgeTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2019-08-11T23:29:25" hostname="ZHA-ITA061-W10" time="0.007">
+<testsuite name="PorkerGameJudgeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2019-08-11T23:36:55" hostname="ZHA-ITA061-W10" time="0.006">
   <properties/>
-  <testcase name="test_porker_judge_given_3H_4D_5S_6C_7D_and_2D_3S_AC_AS_AH_then_return_first_win" classname="PorkerGameJudgeTest" time="0.004"/>
+  <testcase name="test_porker_judge_given_3H_4D_5S_6C_7D_and_2D_3S_AC_AS_AH_then_return_first_win" classname="PorkerGameJudgeTest" time="0.003"/>
+  <testcase name="test_porker_judge_given_4H_4D_5S_5C_5D_and_2h_3H_5H_9H_KH_then_return_first_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <testcase name="test_porker_judge_given_2H_and_AS_then_return_second_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <testcase name="test_porker_judge_given_2H_3D_5S_KC_KD_and_2D_3S_6H_KS_KH_then_return_second_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <testcase name="test_porker_judge_given_2H_3D_KS_KC_KD_and_2D_3S_AC_AS_AH_then_return_second_win" classname="PorkerGameJudgeTest" time="0.0"/>
@@ -9,7 +10,7 @@
   <testcase name="test_porker_judge_given_3H_4D_5S_6C_7D_and_AD_2S_3C_4S_5H_then_return_first_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <testcase name="test_porker_judge_given_2H_3D_5S_9C_KD_and_2D_3H_5C_9S_QD_then_return_first_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <testcase name="test_porker_judge_given_JS_KC_and_QS_KH_then_return_second_win" classname="PorkerGameJudgeTest" time="0.0"/>
-  <testcase name="test_porker_judge_given_2H_3D_5S_KC_KD_and_2D_3S_5C_AS_AD_then_return_second_win" classname="PorkerGameJudgeTest" time="0.0"/>
+  <testcase name="test_porker_judge_given_2H_3D_5S_KC_KD_and_2D_3S_5C_AS_AD_then_return_second_win" classname="PorkerGameJudgeTest" time="0.001"/>
   <testcase name="test_porker_judge_given_3C_4D_5S_6C_7D_and_2h_3H_5H_9H_KH_then_return_first_win" classname="PorkerGameJudgeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -8,6 +8,7 @@ import java.util.List;
 public class PorkerGameHandle {
     private static String dictionary = Poker.dictionary;
     private static int PokerHandeCount = 5;
+    private static int times = 100;
 
     public static String porkerJudge(List<Poker> first, List<Poker> second) {
         int[] firstNumbers = getPokersIndex(first);
@@ -34,6 +35,7 @@ public class PorkerGameHandle {
         dueIndexsIfHasTwoPairOrThreePair(result);
         dueIndexIfHasStraight(result);
         dueIndexIfHasFlush(result,pokers);
+        dueIndexIfHasFullHouse(result);
         return result;
     }
 
@@ -93,6 +95,13 @@ public class PorkerGameHandle {
     private static int[] dueIndexIfHasFlush(int[] indexs, List<Poker> pokers){
         if(hasFlush(pokers))
             indexs[PorkerTypeIndexConstant.FLUSHINDEX] = 1;
+        return indexs;
+    }
+
+    private static int[] dueIndexIfHasFullHouse(int[] indexs){
+        if(indexs[PorkerTypeIndexConstant.THREEPAIRINDEX] == 0 || indexs[PorkerTypeIndexConstant.TWOPAIRINDEX] == 0)
+            return indexs;
+        indexs[PorkerTypeIndexConstant.FULLHOUSEINDEX] = indexs[PorkerTypeIndexConstant.THREEPAIRINDEX] * times + indexs[PorkerTypeIndexConstant.TWOPAIRINDEX];
         return indexs;
     }
 }
