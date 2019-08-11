@@ -1,12 +1,14 @@
 package model;
 
-public class Poker {
+public class Poker implements Comparable<Poker>{
     //Spade 黑桃
     //Heart 红桃
     //Diamond 方块
     //Club 梅花
     private char number;
     private char suit;
+
+    private static String dictionary = "23456789TJQKA";
     public Poker(char number, char suit) {
         this.number = number;
         this.suit = suit;
@@ -29,5 +31,10 @@ public class Poker {
 
     public void setSuit(char suit) {
         this.suit = suit;
+    }
+
+    @Override
+    public int compareTo(Poker o) {
+        return dictionary.indexOf(this.number) - dictionary.indexOf(o.number);
     }
 }
