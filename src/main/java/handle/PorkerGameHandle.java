@@ -14,7 +14,7 @@ public class PorkerGameHandle {
         int[] secondNumbers = getPokersIndex(second);
 
         String message = "draw";
-        for(int i = firstNumbers.length - 1; i >= 0; i--){
+        for(int i = PorkerTypeIndexConstant.INDEXLENTH - 1; i >= 0; i--){
             if(firstNumbers[i] > secondNumbers[i]){
                 message = String.format("first win, his pokers are %s", first);
                 break;
@@ -31,12 +31,12 @@ public class PorkerGameHandle {
         for(int i = 0; i < pokers.size(); i++){
             result[dictionary.indexOf(pokers.get(i).getNumber())]++;
         }
-        dueIndexsIfHasTwoPair(result);
+        dueIndexsIfHasTwoPairOrThreePair(result);
         dueIndexIfHasStraight(result);
         return result;
     }
 
-    private static int[] dueIndexsIfHasTwoPair(int[] indexs){
+    private static int[] dueIndexsIfHasTwoPairOrThreePair(int[] indexs){
         for(int i = 0; i < dictionary.length(); i++){
             if(indexs[i] == 2){
                 indexs[PorkerTypeIndexConstant.TWOPAIRINDEX] += (i*100+1) ;
@@ -50,8 +50,16 @@ public class PorkerGameHandle {
     }
 
     private static boolean hasStraight(int[] indexs){
-        int count = 0;
+        int count = indexs[0] + indexs[1] + indexs[2] +indexs[3] + indexs[12] ;
+        if(count == 5) {
+            return true;
+        }
+        count = 0;
+
         for(int i = 0; i < dictionary.length(); i++){
+            if(count == 5)
+                break;
+
             if(indexs[i] == 1){
                 count ++;
             }else{
