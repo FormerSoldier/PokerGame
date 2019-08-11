@@ -39,8 +39,10 @@ public class PorkerGameHandle {
 
     private static int[] dueIndexsIfHasTwoPair(int[] indexs){
         for(int i = 0; i < dictionary.length(); i++){
-            if(indexs[i] == 2)
-                indexs[TWOPAIRINDEX] = 1;
+            if(indexs[i] == 2){
+                indexs[TWOPAIRINDEX] += (i+1) ;
+                indexs[i] = 0;
+            }
         }
         return indexs;
     }
