@@ -8,8 +8,9 @@ import java.util.List;
 
 public class PorkerGameHandle {
     private static String dictionary = Poker.dictionary;
-    private static final int INDEXLENTH = 14;
+    private static final int INDEXLENTH = 15;
     private static final int TWOPAIRINDEX = dictionary.length();
+    private static final int THREEPAIRINDEX = dictionary.length()+1;
 
     public static String porkerJudge(List<Poker> first, List<Poker> second) {
         int[] firstNumbers = getPokersIndex(first);
@@ -41,6 +42,9 @@ public class PorkerGameHandle {
         for(int i = 0; i < dictionary.length(); i++){
             if(indexs[i] == 2){
                 indexs[TWOPAIRINDEX] += (i+1) ;
+                indexs[i] = 0;
+            }else if(indexs[i] == 3){
+                indexs[THREEPAIRINDEX] += (i+1);
                 indexs[i] = 0;
             }
         }
